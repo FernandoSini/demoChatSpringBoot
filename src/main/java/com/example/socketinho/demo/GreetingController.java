@@ -17,6 +17,8 @@ public class GreetingController {
         Thread.sleep(1000);//delay simulado
         //após esse delay é criado um novo objeto greetings
         // que retorna a mensagem transmitida para todos os inscritos no topico greeting
-        return  new Greeting(HtmlUtils.htmlEscape(message.getMessage()));
+        Greeting greetingData = new Greeting();
+        greetingData.setName(HtmlUtils.htmlEscape(message.getName()));
+        return  greetingData;
     }
 }

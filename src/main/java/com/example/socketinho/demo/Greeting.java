@@ -1,17 +1,20 @@
 package com.example.socketinho.demo;
 
 public class Greeting {
-    private String content;
+    private String name;
 
-    public Greeting(String content) {
-        this.content = content;
+    public Greeting(String name) {
+        this.name = name;
     }
 
-    public String getContent() {
-        return content;
+    public Greeting() {
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

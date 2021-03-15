@@ -29,7 +29,8 @@ function connect() {
         setConnected(true);
         console.log('Connected: ' + frame);
         stompClient.subscribe('/topic/greetings', function (greeting) {
-            showGreeting(JSON.parse(greeting.body).content);
+            console.log(greeting.body)
+            showGreeting(JSON.parse(greeting.body).name);
         });
     });
 }
@@ -43,8 +44,8 @@ function disconnect() {
 }
 
 //a funcao que recupera a mensagem enviada, e usa o client Stomp para enviar para o destino (/app/hello)
-function sendMessage() {
-    stompClient.send("/app/hello", {}, JSON.stringify({'content': $("#content").val()}));
+function sendName() {
+    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
 }
 
 function showGreeting(message) {
@@ -57,5 +58,5 @@ $(function () {
     });
     $( "#connect" ).click(function() { connect(); });
     $( "#disconnect" ).click(function() { disconnect(); });
-    $( "#send" ).click(function() { sendMessage(); });
+    $( "#send" ).click(function() { sendName(); });
 });
